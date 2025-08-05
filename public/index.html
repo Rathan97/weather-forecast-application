@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title of the Application -->
+    <title>Weather Forecast Application</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../icons/favico.ico" />
+
+    <!-- Tailwind & Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body
+    class="min-h-screen bg-gradient-to-br from-blue-100 via-pink-200 to-orange-200 text-[#1E293B] bg-no-repeat bg-cover overflow-x-hidden"
+  >
+    <!-- Header Section -->
+    <header class="p-3 bg-blue-600 text-center flex items-center justify-between">
+      <!-- Application Title -->
+      <h1 class="text-[20px] font-bold text-white text-center w-full md:ml-0">
+        Weather Dashboard
+      </h1>
+
+      <!-- GitHub Repository Link -->
+      <a
+        href="https://github.com/Rathan97/weather-forecast-application"
+        target="_blank"
+        class="absolute right-5 md:right-10 lg:right-14"
+      >
+        <i class="fa-brands fa-github lg:text-[20px] md:text-[20px]"></i>
+      </a>
+    </header>
+
+    <!-- Search & Main Weather Card Section -->
+    <section class="flex flex-col items-center my-7 md:flex-row md:gap-10 md:w-[100%] md:px-14 md:my-1 lg:gap-12 lg:ml-0 lg:px-12 lg:w-[100%] lg:my-0">
+
+      <!-- Search Area -->
+      <section class="md:w-[45%] lg:w-[35%]">
+        <div class="flex flex-row justify-center gap-2">
+          
+          <!-- Input Field with Search Icon -->
+          <div
+            class="relative w-[100%] border-2 text-gray-400 rounded-[25px] p-1.5 focus-within:text-gray-500 bg-white lg:w-full lg:pl-2.5 shadow-lg"
+          >
+            <i
+              class="fa-solid fa-magnifying-glass absolute top-2.5 left-3 pointer-events-none lg:left-4"
+            ></i>
+
+            <!-- Search Input -->
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Enter Your City..."
+              class="text-center border-none outline-none md:w-full md:ml-3 lg:w-[90%] ml-2.5 w-[90%]"
+              autocomplete="off"
+              required
+            />
+
+            <!-- Dropdown for Recent Searches -->
+            <ul
+              id="dropdown"
+              class="bg-white rounded-b-xl absolute font-bold text-[14px] w-[90%] overflow-y-auto max-h-[115px] text-center top-10 left-3 hidden z-10 shadow"
+            >
+              <li class="text-gray-700 py-[2px]">Recent Searches</li>
+              <hr class="my-1" />
+              <!-- JavaScript will inject dynamic recent searches here -->
+            </ul>
+          </div>
+
+          <!-- Search Button -->
+          <button
+            class="search-button bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold px-4 m-0.5 rounded-[8px] shadow-lg"
+          >
+            Search
+          </button>
+        </div>
+
+        <!-- OR Divider -->
+        <div class="flex items-center my-4">
+          <hr class="w-24 border-gray-500 grow" />
+          <span class="px-1 text-gray-500">or</span>
+          <hr class="w-24 border-gray-500 grow" />
+        </div>
+
+        <!-- Button to Use Current Location -->
+        <button
+          class="current-location-btn bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 rounded-[6px] w-[100%] shadow-lg"
+        >
+          Use Current Location
+        </button>
+      </section>
+
+      <!-- Main Weather Card -->
+      <section
+        class="main-card backdrop-blur-md bg-white/40 border border-white/30 rounded-xl hover:shadow-lg transition-all p-3 w-[80%] mt-8 shadow-lg md:w-[55%] lg:w-[65%] lg:px-7 lg:mt-6"
+      >
+        <!-- City Name and Date -->
+        <h2
+          class="main-card-h2 text-center font-bold text-[18px] p-2.5 text-[#0284C7] lg:text-start lg:ml-2.5 lg:py-0 lg:pt-1.5 lg:text-[20px]"
+        >
+          <!-- JS will inject city name + date -->
+        </h2>
+
+        <!-- Weather Details Section -->
+        <section class="text-center flex flex-row justify-start items-center gap-5 text-[13px] md:gap-7 lg:justify-between lg:text-[15px]">
+          
+          <!-- Temperature, Wind, Humidity -->
+          <section class="lg:w-[50%]">
+            <figure class="flex">
+              <img src="../icons/thermometer.svg" alt="Temperature" class="w-10" />
+              <figcaption class="main-card-temp py-2">_Temperature_</figcaption>
+            </figure>
+
+            <figure class="flex">
+              <img src="../icons/wind.svg" alt="Wind" class="w-10 brightness-80" />
+              <figcaption class="main-card-wind py-2">_Wind_</figcaption>
+            </figure>
+
+            <figure class="flex">
+              <img src="../icons/humidity.svg" alt="Humidity" class="w-10" />
+              <figcaption class="main-card-humidity py-2">_Humidity_</figcaption>
+            </figure>
+          </section>
+
+          <!-- Weather Icon & Description -->
+          <figure class="flex flex-col justify-center items-center lg:w-[50%] lg:pb-5">
+            <img class="main-card-icon h-24 brightness-110" alt="icon" />
+            <figcaption
+              class="main-card-description py-1.5 font-medium text-center lg:p-0 lg:text-[16px]"
+            >
+              _Day_description_
+            </figcaption>
+          </figure>
+        </section>
+      </section>
+    </section>
+
+    <!-- Divider for Forecast Section -->
+    <div class="flex justify-center items-center my-8 w-[80%] md:w-[85%] m-auto lg:w-[92%] lg:py-4 lg:m-auto text-center">
+      <hr class="w-20 border-gray-700 grow" />
+      <span class="px-1 text-gray-700 font-medium">5-Day Forecast</span>
+      <hr class="w-20 border-gray-700 grow" />
+    </div>
+
+    <!-- 5-Day Forecast Cards -->
+    <section
+      id="cards"
+      class="flex flex-col md:flex-row md:flex-wrap md:gap-10 md:justify-center md:items-center lg:gap-7.5"
+    >
+      <!-- Cards will be inserted here dynamically using JavaScript -->
+
+      <!-- Error Message if API or Internet fails -->
+      <h1>Something Went Wrong..! Please refresh the page or try after some time.</h1>
+    </section>
+
+    <!-- Main JavaScript File -->
+    <script type="module" src="../index.js"></script>
+  </body>
+</html>
