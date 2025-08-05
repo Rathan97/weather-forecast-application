@@ -141,7 +141,7 @@ function forecastWeatherData(list) {
 // Fetch current and forecast weather data using latitude and longitude
 function weatherDataLatLon(lat, lon, current_location, city) {
   // Fetch current weather
-  const cityData = fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=a850f6dcb749758c3d00b44e7aa7b76f`);
+  const cityData = fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid="YOUR_API_KEY";`);
   cityData
     .then((response) => response.json())
     .then((data) => currentWeatherData(data, current_location, city))
@@ -153,7 +153,7 @@ function weatherDataLatLon(lat, lon, current_location, city) {
     });
 
   // Fetch 5-day forecast
-  const forecastData = fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=a850f6dcb749758c3d00b44e7aa7b76f`);
+  const forecastData = fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid="YOUR_API_KEY";`);
   forecastData
     .then((response) => response.json())
     .then((data) => forecastWeatherData(data.list));
@@ -161,7 +161,7 @@ function weatherDataLatLon(lat, lon, current_location, city) {
 
 // Fetch coordinates (lat/lon) from city name
 function fetchCoordinates(city) {
-  const coordinates = fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&&appid=a850f6dcb749758c3d00b44e7aa7b76f`);
+  const coordinates = fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&&appid="YOUR_API_KEY";`);
   coordinates
     .then((response) => response.json())
     .then((res) => {
